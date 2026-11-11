@@ -1,0 +1,19 @@
+# Netlify / Cloudflare Pages — رؤوس الأمان والكاش (الملف ده لازم يفضل جنب index.html)
+# لما تربط الفورم بالـ CRM: ضيف رابط الـ CRM في connect-src (مثال: connect-src 'self' https://crm.example.com)
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/images/*
+  Cache-Control: public, max-age=604800
+/assets/*
+  Cache-Control: public, max-age=604800
